@@ -1,6 +1,52 @@
+<!DOCTYPE html>
 <html>
 <head>
+	<title>Calculator</title>
+	<style type="text/css">
+	   
+	</style>
 </head>
 <body>
+    <form>
+        <input type="text" id="pierwsze" value="">
+        <select id="dzialania">
+            <option value=""></option>
+            <option value="do">+</option>
+            <option value="od">-</option>
+            <option value="mn">*</option>
+            <option value="dz">/</option>
+        </select>
+        <input type="text" id="drugie" value="">
+        <input type="button" id="guzik" name="guzik" value="=" onclick="oblicz();">
+        <input type="text" id="wynik" value="">
+    </form>
+    <script>
+        function oblicz()
+        {
+            let pierwsze=parseFloat(document.getElementById("pierwsze").value);
+            let dzialania=document.getElementById("dzialania").value;
+            let drugie=parseFloat(document.getElementById("drugie").value);
+            let wynik=document.getElementById("wynik");
+            let zmienna_wynik=0;
+            switch(dzialania)
+                {
+                    case "do":
+                        zmienna_wynik=pierwsze+drugie;
+                        break;
+                    case "od":
+                        zmienna_wynik=pierwsze-drugie;
+                        break;
+                    case "mn":
+                        zmienna_wynik=pierwsze*drugie;
+                        break;
+                    case "dz":
+                        zmienna_wynik=pierwsze/drugie;
+                        break;
+                    default:
+                        alert("Podaj poprawne informacje");
+                }
+            wynik.value=zmienna_wynik;
+        }
+    </script>  
 </body>
 </html>
